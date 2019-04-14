@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Demo</title>
+	<style type="text/css">
+		body,html{
+			width: 100%;
+			height: 100%;
+			background-color: black;
+		}
+
+		div{
+			position: absolute;
+			border-radius: 50%;
+		}
+
+		.text{
+			position: relative;
+			width: 400px;
+			height: 100px;
+			margin: 300px 560px;
+			font-size: 50px;
+			font-family: 黑体;
+			z-index: 1000;/*设置元素的堆叠顺序。拥有更高堆叠顺序的元素总是会处于堆叠顺序较低的元素的前面。*/
+
+		}
+	</style>
+
+</head>
+<body>
+
+	<audio id="music" src="Humming Urban .mp3" autoplay="autoplay"></audio>
+	<div class="text">
+		<p>Humming Urban</p>
+	</div>
+ <script type="text/javascript">
+	let m = document.getElementById('music');
+	m.play();
+
+ 	function balloon(pic) {
+ 		// body...
+ 		this.div = document.createElement("div")
+ 		//this.r = Math.random()*60+20 //半径20-80
+ 		this.r = randomRange(20, 80);
+
+ 		//初始位置
+ 		this.left = randomRange(0, 1000);
+ 		this.top = randomRange(0, 600);
+
+ 		if (pic == null) {
+ 			this.bg = randomColor();
+ 		}else{
+ 			this.bg = pic;
+ 			this.r = 100; //固定
+ 		}
+
+ 		this.speedX = randomRange(-6, 6);
+ 		this.speedY = randomRange(-6, 6);
+ 	}
+
+ 	balloon.prototype.drawBalloon = function(parent) {
+ 		// body...
+ 		this.parent = parent;
+
+ 		var style = this.div.style;
+ 		style.width = this.r * 2 + 'px';
+ 		style.height = this.r * 2 + 'px';
+ 		style.left = this.left + "px";
+    	style.top = this.top + "px";
+    	style.background = this.bg;
+    	parent.appendChild(this.div);
+ 	};
+
+ 	balloon.prototype.run = function() {
+ 		// body...
+ 		//获取 parent 的宽高
+ 		var maxLeft = this.parent.offsetWidth - this.r * 2;
+ 		var maxTop = this.parent.offsetHeight - this.r * 2;
+
+ 		var ts = this; //获取上面的this
+ 		setInterval(function() {
+ 			// body...
+ 			var left = ts.div.offsetLeft + ts.speedX; // offsetLeft 判断一个物体的跟document的左边距离，也就是浏览器左边缘
+ 			var top = ts.div.offsetTop + ts.speedY;
+
+ 			//判断边界问题
+ 			if (left <= 0) {
+ 				left = 0;
+ 				ts.speedX *= -1;
+ 			}
+
+ 			if (top <=0) {
+ 				top = 0;
+ 				ts.speedY *= -1;
+ 			}
+
+ 			if (left >= maxLeft) {
+ 					left = maxLeft;
+ 					ts.speedX *= -1
+ 			}
+
+ 			if (top >= maxTop) {
+ 					top = maxTop;
+ 					ts.speedY *= -1
+ 			}
+
+ 			//移动
+ 			ts.div.style.left = left + "px";
+ 			ts.div.style.top = top + "px";
+ 		},20)
+ 	};
+
+ 	function randomRange(min, max) {
+ 		// body...
+ 		return Math.random()*(max-min)+min;
+ 	}
+
+ 	function randomColor() {
+ 		// body...
+ 		var r = randomRange(0, 255);
+ 		var g = randomRange(0, 255);
+ 		var b = randomRange(0, 255);
+ 		var a = randomRange(0,1);
+ 		return "rgba("+ r +","+ g +","+ b + ","+ a + ")";
+
+ 	}
+
+ 	var n = 0
+ 	var t = setInterval(function(argument) {
+ 		// body...
+	 	var b =new balloon("url("+ n +".png)");
+	 	b.drawBalloon(document.body);
+	 	b.run();
+	 	n++
+	 	if(n > 5){
+	 		clearInterval(t);
+	 	}
+ 	},3000);
+
+
+ 	for (var i = 0; i < 30; i++) {
+ 		var b =new balloon();
+ 		b.drawBalloon(document.body);
+ 		b.run();
+ 	}
+
+
+
+ </script>
+</body>
+</html>
