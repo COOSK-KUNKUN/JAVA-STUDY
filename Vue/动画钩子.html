@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+	<link rel="stylesheet" type="text/css" href="./lib/animate.css">
+	<style type="text/css">
+		.ball{
+			width: 15px;
+			height: 15px;
+			border-radius: 50%;
+			background-color: red;
+		}
+	</style>
+</head>
+<body>
+	<div id="app">
+		<input type="button" name="" value="add" @click="flag=!flag">
+		<transition
+			@before-enter="beforeEnter"
+			@enter="enter"
+			@after-enter="afterEnter">
+			<div class="ball" v-show="flag"></div>
+		</transition>
+	</div>
+	<script>
+		var vm =new Vue({
+			el:"#app",
+			data:{
+				flag:false
+			},
+			methods:{
+				beforeEnter(el){
+					el.style.transform = "translate(0, 0)" // 起始位置
+				},
+				enter(el, done){
+					el.offsetWidth // 强制动画刷新
+					el.style.transform = "translate(150px, 450px)"
+					el.style.transition = 'all 1s ease'
+
+					done() //afrerEnter函数的引用
+				},
+				afterEnter(el){
+					this.flag = !this.flag
+				}
+			}
+		});
+	</script>
+</body>
+</html>

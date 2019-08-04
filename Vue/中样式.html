@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+	<style type="text/css">
+		.red{
+			color: red;
+		}
+
+		.thin{
+			font-weight: 200;
+		}
+
+		.italic{
+			font-style: italic;
+		}
+
+		.active{
+			letter-spacing: 0.5em;
+		}
+	</style>
+</head>
+<body>
+	<div id="app">
+		<h1 class="red thin">big h1</h1>
+		<h2 :class="['thin', 'italic', 'active']">h2h2h2h</h2>
+		<!--<h3 :class="['thin', 'italic', {'active':flag}]"></h3>-->
+		<h4 :style="styleObj1">2333333</h4>
+		<p>{{list[0]}}</p>
+		<p v-for="(item,i) in list">{{i}} --- {{item}}</p>
+		<br/>
+		<p v-for="user in list1">{{user.id}} --- {{user.name}}</p>
+		<p v-for="(val, key) in user">{{ val }} -- {{key}}</p>
+		<p v-for="count in 10">this is {{count}}</p>
+
+		<br/>
+		<div>
+			<label>
+				<input type="text" name="" v-model="id">
+			</label>
+
+			<label>
+				<input type="text" name="" v-model="name">
+			</label>
+
+			<label>
+				<input type="button" name=""  value="添加" @click="add">
+			</label>
+		</div>
+		<p v-for="user in list1">
+		<input type="checkbox" name="">
+		{{user.name}}</p>
+	</div>
+	<script>
+		var vm = new Vue({
+			el:'#app',
+			data:{
+				id:'',
+				name:'',
+				styleObj1:{ color:'red', 'font-weight': 200},
+				list:[1,2,3,4,5,6,7,8],
+				list1:[
+					{id:1,name:'zs1'},
+					{id:2,name:'zs1'},
+					{id:3,name:'zs1'},
+					{id:4,name:'zs1'},
+					{id:5,name:'zs1'},
+					],
+
+				user:{
+					id:1,
+					name:'zss',
+					gender:'man'
+				}
+			},
+			methods:{
+				add(){
+					this.list1.push({id:this.id, name:this.name})//添加
+				}
+			}
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+	<link rel="stylesheet" type="text/css" href="./lib/animate.css">
+	<style type="text/css">
+		.v-enter,
+		.v-leave-to{
+			opacity: 0;
+			transform: translate(150px);
+		}
+		.v-enter-active,
+		.v-leave-active{
+			transition: all 0.5s ease;
+		}
+	</style>
+</head>
+<body>
+	<div id="app">
+		<a href="" @click.prevent="flag=true">登陆</a>
+		<a href="" @click.prevent="flag=false">注册</a>
+		<login v-if="flag"></login>
+		<register v-else="flag"></register>
+		<a href="" @click.prevent="conName='login'">登陆</a>
+		<a href="" @click.prevent="conName='register'">注册</a>
+		<component :is="conName"></component>
+		<a href="" @click.prevent="conName='login'">登陆</a>
+		<a href="" @click.prevent="conName='register'">注册</a>
+		<transition mode="out-in">
+			<component :is="conName"></component>
+		</transition>
+	</div>
+	<script>
+		Vue.component('login',{
+			template:'<h3>登陆组件</h3>'
+		})
+		Vue.component('register',{
+			template:'<h3>注册组件</h3>'
+		})
+		var vm = new Vue({
+			el:"#app",
+			data:{
+				flag: true,
+				conName:''
+			},
+			methods:{}
+		})
+	</script>
+</body>
+</html>

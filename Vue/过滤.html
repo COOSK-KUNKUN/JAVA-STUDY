@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+<body>
+	<div id="app">
+		<p >{{ msg | msgFormat('em')}}</p> 
+	</div>
+	<script>
+		Vue.filter('msgFormat', function(msg, arg){
+			//return msg.replace('hello', 'on')
+			return msg.replace(/hello/g,arg) // 正则
+		})
+		var vm = new Vue({
+			el:'#app',
+			data:{
+				msg:'hello hi this on day hello hi this on day'
+			},
+			methods:{}
+		});
+	</script>
+</body>
+</html>

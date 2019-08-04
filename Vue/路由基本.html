@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+	<link rel="stylesheet" type="text/css" href="./lib/animate.css">
+	<script src="./lib/vue-router.js"></script>
+	<style type="text/css">
+		.router-link-active,.myactive{
+			color: red;
+			font-weight: 800;
+			font-style: italic;
+			font-size: 40px;
+			text-decoration: underline;
+			background-color: green;
+		}
+
+		.v-enter,
+		.v-leave-to{
+			opacity: 0;
+			transform: translateX(140px);
+		}
+
+		.v-enter-active,
+		.v-leave-active{
+			transition: all 0.5s ease;
+		}
+	</style>
+</head>
+<body>
+	<div id="app">
+		<!--<a href="#/login">登陆</a>
+		<a href="#/register">注册</a>-->
+		<router-link to="/login">登陆</router-link>
+		<router-link to="/register">注册</router-link>
+		<router-view></router-view>
+	</div>
+	<script>
+		var login = {
+			template:'<h1>登陆组件</h1>'
+		}
+		var register = {
+			template:'<h1>注册组件</h1>'
+		}
+		var routerObj = new VueRouter({
+			routes:[
+			//{path:'/', component: login},
+			{path:'/', redirect:""}, //重定向
+			{path:'/login', component: login},
+			{path:'/register', component: register}
+			],
+			linkActiveClass:"myactive" //属性
+		})
+		var vm = new Vue({
+			el:"#app",
+			data:{},
+			methods:{},
+			router:routerObj //将路由规则对象，注册到 vm 实例上，用来监听 URL 地址的变化，然后展示对应的组件
+		})
+	</script>
+</body>
+</html>

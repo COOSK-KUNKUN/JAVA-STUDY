@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+	<link rel="stylesheet" type="text/css" href="./lib/animate.css">
+	<style type="text/css">
+		.v-enter,
+		.v-leave-to{
+			opacity: 0;
+			transform: translateX(150px);
+		}
+
+		.v-enter-active,
+		.v-leave-active{
+			transition: all 0.4s ease;
+		}
+
+		.my-enter,
+		.my-leave-to{
+			opacity: 0;
+			transform: translateY(70px);
+		}
+
+		.my-enter-active,
+		.my-leave-active{
+			transition: all 0.4s ease;
+		}
+	</style>
+</head>
+<body>
+	<div id="app">
+		<input type="button" value="click" @click="flag=!flag">
+		<transition>
+			<h3 v-if="flag">H3</h3>
+		</transition>
+		<hr/>
+		<input type="button" value="click2" @click="flag2=!flag2">
+		<transition name="my">
+			<h3 v-if="flag2">H3</h3>
+		</transition>
+		<hr/>
+		<input type="button" value="click3" @click="flag3=!flag3">
+		<transition enter-active-class = "animated bounceIn" leave-active-class="animated bounceOut" :duration="{ enter:200, leave:400}">
+			<!--duration 动画时长-->
+			<h3 v-if="flag3">H3</h3>
+		</transition>
+	</div>
+	<script>
+		var vm = new Vue({
+			el:'#app',
+			data:{
+				flag:false,
+				flag2:false,
+				flag3:false,
+			},
+			methods:{}
+		})
+	</script>
+</body>
+</html>

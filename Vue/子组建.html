@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+	<link rel="stylesheet" type="text/css" href="./lib/animate.css">
+</head>
+<body>
+	<div id="app">
+		<com2 v-on:func="show"></com2>
+	</div>
+	<template id="tmpl">
+		<div>
+			<h1>这是 子组件</h1>
+			<input type="button" value="子组件按钮" @click="myclick">
+		</div>
+	</template>
+	<script>
+		var com2 = {
+			template:"#tmpl",
+			data:{
+				return{
+					sonmsg:{
+						name:"儿子", age:6
+					}
+				}
+			},
+			methods:{
+				myclick(){
+					this.$emit('func',123,this.sonmsg)//emit 触发
+				}
+			}
+		}
+		var vm = new Vue({
+			el:"#app",
+			data:{},
+			methods:{
+				show(data){
+					console.log("调用父组建 ----" + data)
+				}
+			},
+			components:{
+				com2
+			}
+		});
+	</script>
+</body>
+</html>

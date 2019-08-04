@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+	<link rel="stylesheet" type="text/css" href="./lib/animate.css">
+</head>
+<body>
+	<div id="app">
+		<input type="text" v-model="firstname" > +
+		<input type="text" v-model="lastname" > =
+		<input type="text" v-model="fullname">
+	</div>
+	<script>
+		var vm = new Vue({
+			el:"#app",
+			data:{
+				firstname:'',
+				lastname:'',
+				fullname:''
+			},
+			methods:{
+				//this.fullname = this.firstname + '-' + this.lastname
+			},
+			watch:{
+				"firstname":function(){
+					this.fullname = this.firstname + '-' + this.lastname
+				},
+				'lastname':function(newVal){
+					this.fullname = this.firstname + newVal
+
+				}
+			}
+		})
+	</script>
+</body>
+</html>
