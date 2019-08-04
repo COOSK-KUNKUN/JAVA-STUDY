@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script
+  src="http://code.jquery.com/jquery-3.4.1.js"
+  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+  crossorigin="anonymous"></script>
+</head>
+<body>
+	<input type="button" value="按钮" id="btn"/>
+	<ul id="ul1">
+		<li>1</li>
+		<li>2</li>
+		<li id="li3">3</li>
+		<li>4</li>
+		<li>5</li>
+	</ul>
+</body>
+</html>
+<script type="text/javascript">
+	$(function(){
+		$('#btn').click(function(){
+			//$('#ul1').html(""); //会造成内存泄漏
+			$('#ul1').empty();
+		});
+	});
+</script>

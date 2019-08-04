@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script
+  src="http://code.jquery.com/jquery-3.4.1.js"
+  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+  crossorigin="anonymous"></script>
+  <style type="text/css">
+  	div{
+  		width: 100px;
+  		height: 100px;
+  		background-color: red;
+  		position: absolute;
+  		left: 0px;
+  	}
+
+  	#div1{
+  		top:50px;
+  	}
+
+  	#div2{
+  		top:170px;
+  	}
+  </style>
+</head>
+<body>
+	<input type="button" value="left to right" id="lr800"/>
+	<div id="div1"></div>
+	<div id="div2"></div>
+</body>
+</html>
+<script type="text/javascript">
+	$(function() {
+		// body...
+		$('#lr800').click(function(){
+
+			$('#div1').animate({
+				left:800
+			}, 2000, 'linear');
+
+			$('#div2').animate({
+				left:800
+			}, 2000, 'swing');			
+
+		});
+	});
+</script>
