@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<link rel="stylesheet"
+	href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="code/js/jquery.min.js"></script>
+	<script src="code/js/bootstrap.js"></script>
+	<script type="code/js/bootstrap.min.js"></script>
+	<script src="code/js/holder.js"></script>
+	<script type="code/js/popper.min.js"></script>
+	<script src="https://cdn.staticfile.org/popper.js/1.12.5/umd/popper.min.js"></script>
+	<script type="code/js/masonry.pkgd.min.js"></script>
+	<script type="code/js/isotope.pkgd.min.js"></script>
+	<style type="text/css">
+		.row{
+			padding: 15px;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<h1 class="page-header">Bootstrap</h1>
+		<ol class="breadcrumb">
+			<li><a href="">linux</a></li>
+			<li><a href="">linux</a></li>
+			<li><a href="">linux</a></li>
+			<li><a href="">linux</a></li>
+		</ol>
+
+		<ul class="pagination">
+			<li><a href="">&laquo;</a></li>
+			<li class="active"><a href="">1</a></li>
+			<li><a href="">2</a></li>
+			<li><a href="">3</a></li>
+			<li><a href="">4</a></li>
+			<li><a href="">5</a></li>
+			<li><a href="">&raquo;</a></li>
+		</ul>
+
+		<div class="row">
+			<div class="col-md-3">
+					<a href="#" class="thumbnail">
+						<img src="holder.js/100px200" class="img-thumbnail" >
+					</a>
+				</div>
+				<div class="col-md-3">
+					<img src="holder.js/100px200"  >
+				</div>
+				<div class="col-md-3">
+					<img src="holder.js/100px200" >
+				</div>
+				<div class="col-md-3">
+					<img src="holder.js/100px200"  >
+				</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-3 ">
+				<div class="thumbnail">
+					<img src="holder.js/100px200" alt="">
+					<div class="caption">
+						<h3>linux</h3>
+						<p>233333333333333333333333</p>
+						<button class="btn btn-primary">OK</button>
+						<button class="btn btn-danger">Cancel</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+  			<div class="col-xs-6 col-md-3">
+    			<a href="#" class="thumbnail">
+      				<img src="holder.js/100px200" alt="...">
+    			</a>
+  			</div>
+		</div>
+
+		<div class="panel panel-danger">
+			<div class="panel-heading">
+				<div class="panel-title">
+					<h1>New</h1>
+				</div>
+			</div>
+
+				<div class="list-group">
+						<a href="" class="list-group-item active">
+							<h2>Linux</h2>
+							<P>23333333333333</P>
+						</a>
+
+						<a href="" class="list-group-item">
+							<h2>linux</h2>
+							<p>23333333333333</p>
+						</a>
+				</div>
+		</div>
+
+		<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#mymodal">Click</button>
+		<div class="modal fade" id="mymodal">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<div class="close" data-dismiss="modal">
+							&times;
+						</div>
+						<h3>linux技术文章</h3>
+						<P>233333333333333</P>
+					</div>
+					<div class="modal-footer">
+						<button class="btn btn-default" data-dismiss="modal">close</button>
+						<button class="btn btn-primary save" >save</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+<script >
+	$('.save').click(function() {
+		// body...
+		alert('登陆成功');
+
+		$('#mymodal').modal('hide');
+	})；
+</script>
+</html>

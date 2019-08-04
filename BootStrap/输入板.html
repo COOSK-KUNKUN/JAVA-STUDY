@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+		<title></title>
+	<link rel="stylesheet"  href="code/css/bootstrap.css">
+	<script src="code/js/bootstrap.js"></script>
+	<script src="code/js/jquery.min.js"></script>
+	<script src="code/js/holder.js"></script>
+	<script type="code/js/popper.min.js"></script>
+	<script src="https://cdn.staticfile.org/popper.js/1.12.5/umd/popper.min.js"></script>
+	<script type="code/js/bootstrap.min.js"></script>
+	<script type="text/javascript">
+		$(function () {
+        // 解决bootstrap下拉菜单第一次点击无反应问题
+        $('.dropdown-toggle').dropdown('toggle');
+    });
+	</script>
+	<style type="text/css">
+		.container{
+			height: 600;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<h1  class="page-header">Bootstrap</h1>
+		<form class="form-horizontal">
+			<div class="form-group">
+				<label for="">密码：</label>
+				<input type="text" class="form-control">
+			</div>
+
+			<div class="form-group">
+				<label >用户名</label>
+				<input type="text" class="form-control">
+			</div>
+
+			<div class="form-group has-success">
+				<label >用户名</label>
+				<input type="text" class="form-control">
+			</div>
+
+			<div class="form-group has-success input-group input-group-lg">
+				<label >用户名</label>
+				<div class="input-group-addon">$</div>
+				<input type="text" class="form-control">
+			</div>
+
+			<div class="form-group has-error">
+				<label >用户名</label>
+				<input type="text" class="form-control input-lg">
+			</div>
+
+			<div class="form-group">
+				<label>留言</label>
+				<textarea class="form-control" cols="30" rows="10" >
+				</textarea>
+			</div>
+
+			<div class="form-group">
+				<label>文件上传</label>
+				<input type="file" name="">
+			</div>
+			<div class="form-group">
+				<label>hobby:</label>
+				<div class="checkbox">
+					<label>
+						<input type="checkbox" name="">food
+					</label>
+				</div>
+			</div>
+			<div class="form-group has-success input-group ">
+				<div class="input-group-btn ">
+					<button class="btn btn-danger" data-toggle="dropdown">GO</button>
+					<ul class="dropdown-menu">
+						<li><a href="#" class="dropdown-item">2333</a></li>
+						<li><a href="#">2333</a></li>
+						<li><a href="#">2333</a></li>
+						<li><a href="#">2333</a></li>
+					</ul>
+				</div>
+				<input type="text" class="form-control" name="">
+			</div>
+	</form>
+	</div>
+</body>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<title></title>
+	<link rel="stylesheet"
+	href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="code/js/jquery.min.js"></script>
+	<script src="code/js/bootstrap.js"></script>
+	<script type="code/js/bootstrap.min.js"></script>
+	<script src="code/js/holder.js"></script>
+	<script type="code/js/popper.min.js"></script>
+	<script src="https://cdn.staticfile.org/popper.js/1.12.5/umd/popper.min.js"></script>
+	<script type="code/js/masonry.pkgd.min.js"></script>
+	<script type="code/js/isotope.pkgd.min.js"></script>
+	<style >
+		body{
+			padding-top: 60px;
+		}
+		.list-group{
+			position: fixed;
+			top: 200px;
+		}
+	</style>
+</head>
+<body data-spy="scroll" data-target="#mynav">
+	<div class="container">
+		<nav class="navbar navbar-inverse navbar-fixed-top" >
+		  <div class="container-fluid">
+		    <div class="navbar-header">
+		      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+		        <span class="sr-only">Toggle navigation</span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		      </button>
+		      <a class="navbar-brand" href="#">Brand</a>
+		    </div>
+
+		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+		      <ul class="nav navbar-nav">
+		      	<li class="active linux"><a href="">linux</a></li>
+		      	<li class="js"><a href="">js</a></li>
+		      	<li class="php"><a href="">php</a></li>
+		      	<li class="html5"><a href="">html5</a></li>
+		      </ul>
+		    </div>
+		  </div>
+		</nav>
+
+		<div class="row">
+			<div class="col-md-1">
+				<div class="list-group" id="mynav">
+					<a id="linux" href="javascript:" class="list-group-item">linux</a>
+					<a id="js" href="javascript" class="list-group-item">js</a>
+					<a id="php" href="javascript" class="list-group-item">php</a>
+					<a id="html5" href="javascript" class="list-group-item">html5</a>
+				</div>
+			</div>
+			<div class="col-md-11">
+				<div class="panel panel-primary" idx="linux">
+				  <div class="panel-heading">
+				    <div class="panel-title">
+				    	<h1 id="linux">linux</h1>
+				    </div>
+				  </div>
+				  <div class="panel-body">
+				  	<img src="holder.js/100px800" alt="...">
+				  </div>
+				</div>
+
+				<div class="panel panel-primary" idx="js">
+				  <div class="panel-heading">
+				    <div class="panel-title">
+				    	<h1 id="js">js</h1>
+				    </div>
+				  </div>
+				  <div class="panel-body">
+				  	<img src="holder.js/100px800" alt="...">
+				  </div>
+				</div>
+
+				<div class="panel panel-primary" idx="php">
+				  <div class="panel-heading">
+				    <div class="panel-title">
+				    	<h1 id="php">php</h1>
+				    </div>
+				  </div>
+				  <div class="panel-body">
+				  	<img src="holder.js/100px800" alt="...">
+				  </div>
+				</div>
+
+				<div class="panel panel-primary" idx="html5">
+				  <div class="panel-heading">
+				    <div class="panel-title">
+				    	<h1 id="html5">html5</h1>
+				    </div>
+				  </div>
+				  <div class="panel-body">
+				  	<img src="holder.js/100px800" alt="...">
+				  </div>
+				</div>		
+			</div>
+		</div>
+
+
+
+
+	</div>
+
+</body>
+<script type="text/javascript">
+
+$(window).scroll(function(){
+	$('.panel').each(function(){
+		st=$(window).scrollTop();
+		pt=$(this).offset().top;
+		if (st>=(pt-150)) {
+			idx=$(this).attr('idx');
+			$('#'+idx).addClass('active');
+			$('.list-group-item').not($('#'+idx)).removeClass('active');
+
+			$('.'+idx).addClass('active');
+			$('.navbar-nav li').not($('.'+idx)).removeClass('active');
+		}
+	});
+});
+
+</script>
+</html>
